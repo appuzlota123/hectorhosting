@@ -1,0 +1,50 @@
+---
+const features = [
+  {
+    title: "High Performance",
+    description: "Latest generation hardware with DDR4 RAM and SSD storage for lag-free gaming.",
+    icon: "⚡"
+  },
+  {
+    title: "DDoS Protection",
+    description: "Advanced protection against DDoS attacks to keep your server running smoothly.",
+    icon: "🛡️"
+  },
+  {
+    title: "24/7 Support",
+    description: "Our expert team is always ready to help you with any issues.",
+    icon: "🎮"
+  },
+  {
+    title: "Instant Setup",
+    description: "Get your server up and running within minutes after purchase.",
+    icon: "⚙️"
+  }
+];
+---
+
+<section class="py-24 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Why Choose HectorHosting?</h2>
+      <p class="mt-6 text-lg leading-8 text-gray-300">
+        Experience premium Minecraft hosting with features designed for optimal performance and reliability.
+      </p>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+      <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
+        {features.map(feature => (
+          <div class="flex flex-col items-center">
+            <dt class="text-4xl mb-6">{feature.icon}</dt>
+            <dt class="text-xl font-semibold leading-7 text-white mb-2">
+              {feature.title}
+            </dt>
+            <dd class="mt-1 text-base leading-7 text-gray-400 text-center">
+              {feature.description}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>

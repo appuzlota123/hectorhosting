@@ -1,0 +1,56 @@
+---
+import ParticleBackground from './ParticleBackground.astro';
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-950">
+  <ParticleBackground />
+  
+  <div class="relative z-10 px-6 lg:px-8 w-full">
+    <div class="mx-auto max-w-4xl text-center">
+      <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
+        Level Up Your
+        <span class="text-gradient bg-clip-text">Minecraft</span>
+        Server
+      </h1>
+      <p class="mt-6 text-xl leading-8 text-gray-300 max-w-2xl mx-auto">
+        Experience lag-free gaming with our high-performance servers featuring DDR4 RAM, 
+        SSD storage, and advanced DDoS protection.
+      </p>
+      <div class="mt-12 flex items-center justify-center gap-x-6">
+        <a 
+          href="/plans" 
+          class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-emerald-500 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
+        >
+          View Plans
+          <svg 
+            class="w-5 h-5 ml-2 -mr-1 transition-transform duration-200 ease-out group-hover:translate-x-1" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+        <a 
+          href="/support" 
+          class="text-lg font-semibold text-white hover:text-emerald-400 transition-colors duration-200"
+        >
+          Contact Support
+          <span aria-hidden="true" class="ml-2">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-gray-950 to-transparent"></div>
+</section>
+
+<style>
+  .text-gradient {
+    background: linear-gradient(45deg, #22c55e, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>

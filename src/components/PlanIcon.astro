@@ -1,0 +1,23 @@
+---
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+
+const iconMap = {
+  'Grass': '🌱',
+  'Wood': '🪵',
+  'Stone': '🪨',
+  'Copper': '🔶',
+  'Iron': '⚔️',
+  'Gold': '👑',
+  'Diamond': '💎',
+  'Emerald': '💚',
+  'Netherite': '🔥'
+};
+
+const icon = iconMap[name.split(' ')[0]] || '🎮';
+---
+
+<span class="text-3xl mb-2">{icon}</span>

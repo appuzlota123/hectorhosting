@@ -1,0 +1,93 @@
+---
+import GlowingCard from './GlowingCard.astro';
+import PlanIcon from './PlanIcon.astro';
+
+interface Props {
+  name: string;
+  ram: string;
+  cpu: string;
+  storage: string;
+  ports: number;
+  backups: number;
+  databases: number;
+  price: {
+    inr: number;
+    usd: number;
+  };
+  featured?: boolean;
+  category?: string;
+}
+
+const { name, ram, cpu, storage, ports, backups, databases, price, featured = false, category } = Astro.props;
+---
+
+<GlowingCard className="h-full">
+  <div 
+    class={`relative bg-gray-900/80 backdrop-blur-sm rounded-lg p-6 flex flex-col h-full transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 ${featured ? 'ring-2 ring-emerald-500' : ''}`} 
+    data-category={category}
+  >
+    {featured && (
+      <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+        Most Popular
+      </div>
+    )}
+    
+    <div class="flex flex-col items-center mb-6">
+      <div class="relative">
+        <div class="absolute inset-0 bg-emerald-500 blur-lg opacity-20 rounded-full"></div>
+        <PlanIcon name={name} />
+      </div>
+      <h3 class="text-2xl font-bold text-white mt-4">{name}</h3>
+      {category && <span class="text-sm text-emerald-400 mt-1">{category}</span>}
+    </div>
+
+    <ul class="space-y-3 text-gray-300 flex-grow">
+      <li class="flex items-center">
+        <span class="text-emerald-400 mr-2">✓</span>
+        <span class="flex-grow">{ram} Ram [DDR 4]</span>
+      </li>
+      <li class="flex items-center">
+        <span class="text-emerald-400 mr-2">✓</span>
+        <span class="flex-grow">CPU {cpu} [Intel,Amd]</span>
+      </li>
+      <li class="flex items-center">
+        <span class="text-emerald-400 mr-2">✓</span>
+        <span class="flex-grow">{storage} [SSD] Storage</span>
+      </li>
+      <li class="flex items-center">
+        <span class="text-emerald-400 mr-2">✓</span>
+        <span class="flex-grow">{ports} Port{ports > 1 ? 's' : ''}</span>
+      </li>
+      <li class="flex items-center">
+        <span class="text-emerald-400 mr-2">✓</span>
+        <span class="flex-grow">{backups} Backup{backups > 1 ? 's' : ''}</span>
+      </li>
+      <li class="flex items-center">
+        <span class="text-emerald-400 mr-2">✓</span>
+        <span class="flex-grow">{databases} Database{databases > 1 ? 's' : ''}</span>
+      </li>
+      <li class="flex items-center">
+        <span class="text-emerald-400 mr-2">✓</span>
+        <span class="flex-grow">Advanced DDoS Protection</span>
+      </li>
+    </ul>
+
+    <div class="mt-6 text-center">
+      <p class="text-3xl font-bold text-white mb-2">
+        ₹{price.inr} <span class="text-gray-400">|</span> ${price.usd}
+      </p>
+      <p class="text-sm text-gray-400 mb-4">per month</p>
+      <a 
+        href="#" 
+        class={`
+          relative overflow-hidden group block w-full ${
+            featured ? 'bg-emerald-500 hover:bg-emerald-600' : 'bg-gray-700 hover:bg-gray-600'
+          } text-white text-center py-3 rounded-lg transition-all duration-300 font-semibold
+        `}
+      >
+        <span class="relative z-10">Get Started</span>
+        <div class="absolute inset-0 h-full w-full bg-gradient-to-r from-emerald-400 to-emerald-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+      </a>
+    </div>
+  </div>
+</GlowingCard>

@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PlanCard from '../components/PlanCard.astro';
+import PlanFilter from '../components/PlanFilter.astro';
+import PlanComparison from '../components/PlanComparison.astro';
+
+const plans = [
+  {
+    name: "Grass Plan",
+    ram: "1 GB",
+    cpu: "100%",
+    storage: "10 GB",
+    ports: 1,
+    backups: 1,
+    databases: 1,
+    price: { inr: 89, usd: 1 },
+    category: "Budget"
+  },
+  {
+    name: "Wood Plan",
+    ram: "2 GB",
+    cpu: "150%",
+    storage: "15 GB",
+    ports: 2,
+    backups: 2,
+    databases: 2,
+    price: { inr: 129, usd: 1.59 },
+    category: "Budget"
+  },
+  {
+    name: "Stone Plan",
+    ram: "4 GB",
+    cpu: "200%",
+    storage: "20 GB",
+    ports: 3,
+    backups: 2,
+    databases: 2,
+    price: { inr: 189, usd: 2.29 },
+    category: "Budget"
+  },
+  {
+    name: "Copper Plan",
+    ram: "6 GB",
+    cpu: "250%",
+    storage: "30 GB",
+    ports: 2,
+    backups: 2,
+    databases: 3,
+    price: { inr: 249, usd: 2.99 },
+    category: "Popular"
+  },
+  {
+    name: "Iron Plan",
+    ram: "8 GB",
+    cpu: "300%",
+    storage: "40 GB",
+    ports: 3,
+    backups: 3,
+    databases: 3,
+    price: { inr: 349, usd: 4.19 },
+    featured: true,
+    category: "Popular"
+  },
+  {
+    name: "Gold Plan",
+    ram: "10 GB",
+    cpu: "350%",
+    storage: "50 GB",
+    ports: 4,
+    backups: 4,
+    databases: 3,
+    price: { inr: 449, usd: 5.99 },
+    category: "Popular"
+  },
+  {
+    name: "Diamond Plan",
+    ram: "12 GB",
+    cpu: "400%",
+    storage: "60 GB",
+    ports: 5,
+    backups: 5,
+    databases: 3,
+    price: { inr: 549, usd: 6.59 },
+    category: "Premium"
+  },
+  {
+    name: "Emerald Plan",
+    ram: "14 GB",
+    cpu: "450%",
+    storage: "70 GB",
+    ports: 6,
+    backups: 6,
+    databases: 3,
+    price: { inr: 649, usd: 7.79 },
+    category: "Premium"
+  },
+  {
+    name: "Netherite Plan",
+    ram: "16 GB",
+    cpu: "500%",
+    storage: "80 GB",
+    ports: 7,
+    backups: 7,
+    databases: 3,
+    price: { inr: 749, usd: 8.99 },
+    category: "Premium"
+  }
+];
+---
+
+<Layout 
+  title="Minecraft Hosting Plans" 
+  description="Choose from our range of affordable Minecraft hosting plans with high performance and DDoS protection."
+>
+  <section class="py-16 px-4">
+    <div class="container mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-white mb-4">Choose Your Perfect Hosting Plan</h1>
+        <p class="text-gray-400 max-w-2xl mx-auto">
+          From budget-friendly options to high-performance servers, we have the perfect plan for your Minecraft community.
+        </p>
+      </div>
+      
+      <PlanFilter />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {plans.map(plan => <PlanCard {...plan} />)}
+      </div>
+
+      <PlanComparison />
+
+      <div class="mt-12 bg-gray-800 rounded-lg p-8 text-center">
+        <h2 class="text-2xl font-bold text-white mb-4">Need a Custom Plan?</h2>
+        <p class="text-gray-400 mb-6">Contact us for customized solutions tailored to your specific requirements.</p>
+        <a href="/support" class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-lg transition-colors">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .grid {
+    scroll-margin-top: 2rem;
+  }
+</style>

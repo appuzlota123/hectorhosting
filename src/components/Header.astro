@@ -1,0 +1,27 @@
+---
+const navItems = [
+  { text: 'Home', href: '/' },
+  { text: 'Plans', href: '/plans' },
+  { text: 'Support', href: '/support' }
+];
+---
+
+<header class="fixed w-full z-50 backdrop-blur-sm bg-gray-950/80 border-b border-gray-800">
+  <nav class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-white">HectorHosting</a>
+      <ul class="flex space-x-8">
+        {navItems.map(item => (
+          <li>
+            <a 
+              href={item.href} 
+              class="text-gray-300 hover:text-emerald-400 transition-colors font-medium"
+            >
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>

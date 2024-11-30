@@ -1,0 +1,24 @@
+---
+const categories = ["All Plans", "Budget", "Popular", "Premium"];
+---
+
+<div class="flex justify-center gap-4 mb-12">
+  {categories.map(category => (
+    <button
+      class="px-6 py-2 rounded-full text-gray-300 hover:text-white hover:bg-gray-700 transition-colors"
+      data-category={category}
+    >
+      {category}
+    </button>
+  ))}
+</div>
+
+<script>
+  const buttons = document.querySelectorAll('[data-category]');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(btn => btn.classList.remove('bg-gray-700', 'text-white'));
+      button.classList.add('bg-gray-700', 'text-white');
+    });
+  });
+</script>

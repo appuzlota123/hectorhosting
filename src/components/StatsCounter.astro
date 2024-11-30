@@ -1,0 +1,28 @@
+---
+const stats = [
+  { value: '99.9%', label: 'Uptime', icon: '📈' },
+  { value: '24/7', label: 'Support', icon: '🛟' },
+  { value: '<10ms', label: 'Latency', icon: '⚡' },
+  { value: '10Gbps', label: 'Network', icon: '🌐' }
+];
+---
+
+<div class="relative py-16">
+  <div class="absolute inset-0 bg-emerald-500/10 backdrop-blur-3xl"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+      {stats.map(({ value, label, icon }) => (
+        <div class="text-center">
+          <div class="relative">
+            <div class="absolute inset-0 bg-emerald-500/20 blur-2xl rounded-full"></div>
+            <div class="relative text-4xl mb-2">{icon}</div>
+          </div>
+          <div class="mt-2">
+            <p class="text-3xl font-bold text-white">{value}</p>
+            <p class="text-sm text-emerald-400 mt-1">{label}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

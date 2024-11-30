@@ -1,0 +1,44 @@
+---
+const testimonials = [
+  {
+    text: "Best Minecraft hosting I've ever used. The performance is incredible!",
+    author: "Alex M.",
+    role: "Server Owner"
+  },
+  {
+    text: "Setup was instant and support team is always helpful. Highly recommended!",
+    author: "Sarah K.",
+    role: "Community Manager"
+  },
+  {
+    text: "The DDoS protection is top-notch. Haven't had any downtime in months.",
+    author: "Mike R.",
+    role: "Gaming Community Leader"
+  }
+];
+---
+
+<div class="py-16 bg-gray-900/50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-white">What Our Users Say</h2>
+      <p class="mt-4 text-lg text-gray-400">Join thousands of satisfied server owners</p>
+    </div>
+    
+    <div class="grid gap-8 md:grid-cols-3">
+      {testimonials.map(({ text, author, role }) => (
+        <div class="relative">
+          <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 rounded-lg blur-lg"></div>
+          <div class="relative bg-gray-800 p-8 rounded-lg">
+            <div class="text-emerald-400 text-4xl mb-4">"</div>
+            <p class="text-gray-300 mb-6">{text}</p>
+            <div>
+              <p class="font-semibold text-white">{author}</p>
+              <p class="text-sm text-emerald-400">{role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
